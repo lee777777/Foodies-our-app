@@ -10,21 +10,29 @@
     "lint": "eslint ."
   },
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.36",
+    "@fortawesome/free-solid-svg-icons": "^5.15.4",
+    "@fortawesome/react-native-fontawesome": "^0.2.7",
     "@react-navigation/bottom-tabs": "^6.0.9",
+    "@react-navigation/drawer": "^6.1.8",
     "@react-navigation/native": "^6.0.6",
     "@react-navigation/native-stack": "^6.2.5",
     "expo": ">=43.0.0-* <44.0.0",
     "expo-app-loading": "^1.2.1",
     "expo-secure-store": "~11.0.3",
+    "formik": "^2.2.9",
     "react": "17.0.2",
     "react-native": "0.66.1",
     "react-native-elements": "^3.4.2",
+    "react-native-gesture-handler": "^1.10.3",
     "react-native-ionicons": "^4.6.5",
+    "react-native-reanimated": "^2.2.4",
     "react-native-safe-area-context": "^3.3.2",
     "react-native-screens": "^3.9.0",
     "react-native-vector-icons": "^9.0.0",
     "react-navigation-stack": "^2.10.4",
-    "react-navigation-tabs": "^2.11.1"
+    "react-navigation-tabs": "^2.11.1",
+    "yup": "^0.32.11"
   },
   "devDependencies": {
     "@babel/core": "7.16.0",

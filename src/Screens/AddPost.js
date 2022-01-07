@@ -1,15 +1,10 @@
 import React, {useContext,useState} from 'react';
-import Header from '../components/Header';
-import Home from './Home';
-import Feed from './Feed';
-import Explore from './Explore';
-import authFlow from '../../App';
-
-import {View,  StyleSheet, Text, FlatList, Image, Alert, Button} from 'react-native';
-import SmallButton from '../components/SmallButton';
+import {globalStyles} from '../../Assets/Global';
+import {View,  StyleSheet, Text,TouchableOpacity, FlatList, Image, Alert, Button} from 'react-native';
+import SmallButton from '../components/Buttons/SmallButton';
 import {Context as AuthContext} from '../Context/AuthContext';
-
-const Recommendations = ({ navigation }) =>{
+import Ionicons from 'react-native-vector-icons/Ionicons';
+const AddPost = ({ navigation }) =>{
   const {state, signout} = useContext(AuthContext);
 
   React.useLayoutEffect(() => {
@@ -32,30 +27,24 @@ const Recommendations = ({ navigation }) =>{
       cancelable: true}
     ) }
         title="Logout" />
+      ),
+      headerLeft: () => (
+        <TouchableOpacity style={{marginLeft: 5}} onPress={() => navigation.goBack()}>
+      <Ionicons name={'arrow-back'} size={30} color={'black'} />
+        </TouchableOpacity> 
       )
 
     });
   }, [navigation]);
   return(
     
-        <View style={styles.container}>
-          <Text style={{color:'black'}}>Tis is the Recommendations screen...</Text>
+        <View style={globalStyles.container}>
+          <Text style={{color:'black'}}>Add a new post in this screen...</Text>
         </View>
       
   );
 
 };
-const styles = StyleSheet.create({
-  
-container: {
-  flex:1,
-  backgroundColor: '#fcf9f2'
-},
-btnView:{
-  flexDirection: "row",
-  color: '#fff',
-  justifyContent: 'space-between'
-},
 
-});
-export default Recommendations;
+
+export default AddPost;

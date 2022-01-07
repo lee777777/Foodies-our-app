@@ -1,9 +1,9 @@
 import React, {useState, useContext} from 'react';
 import Home from './Home';
-import ButtonCostom from '../components/Button';
+import ButtonCostom from '../components/Buttons/Button';
 import {View,  StyleSheet,TextInput, Text, Image, FlatList, Alert, Button} from 'react-native';
 import {Context as AuthContext} from '../Context/AuthContext';
-import Icon from 'react-native-ionicons'
+import {globalStyles} from '../../Assets/Global';
 const UserForm = ({ navigation }) =>{
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -46,32 +46,32 @@ const UserForm = ({ navigation }) =>{
     };
   return(
     
-        <View style={styles.container}>
+        <View style={globalStyles.formContainer}>
         <Text style={{  fontFamily: 'lobster-regular', color:'black', fontSize:28}}>Foodies</Text> 
         <Image
-        style={styles.logo}
+        style={globalStyles.logo}
         source={require('../../Assets/Images/food.jpg')}
       />
         <Text style={{  fontFamily: 'lobster-regular', marginBottom:'5%', color:'black', fontSize:18}}>"Food Connects"</Text> 
-    <View style={styles.inputView}>
+    <View style={globalStyles.inputView}>
     <TextInput
-      style={styles.TextInput}
+      style={globalStyles.TextInput}
       placeholder="Enter your email here..."
       placeholderTextColor="#705964"
       onChangeText={(emailTx) => setEmail(emailTx)}
     />
   </View>
-  <View style={styles.inputView}>
+  <View style={globalStyles.inputView}>
     <TextInput
-      style={styles.TextInput}
+      style={globalStyles.TextInput}
       placeholder="Enter your name here..."
       placeholderTextColor="#705964"
       onChangeText={(nameTx) => setName(nameTx)}
     />
   </View>
-  <View style={styles.inputView}>
+  <View style={globalStyles.inputView}>
     <TextInput
-      style={styles.TextInput}
+      style={globalStyles.TextInput}
       placeholder="Enter your password here..."
       placeholderTextColor="#705964"
       // keyboardType="visible-password"
@@ -79,9 +79,9 @@ const UserForm = ({ navigation }) =>{
       onChangeText={(passwordTx) => setPassword(passwordTx)}
     />
   </View>
-          <View style={styles.btnView}>
+          <View style={globalStyles.btnView}>
           <ButtonCostom  onPress={() => {if(isBlanck (email, password, name))
-          { signin({email, password});}}} title='Login' /> 
+          { signin({email, password, name});}}} title='Login' /> 
           </View>   
         </View>
         
@@ -89,38 +89,5 @@ const UserForm = ({ navigation }) =>{
   );
 
 };
-const styles = StyleSheet.create({
-  
-container: {
-  flex:1,
-justifyContent: 'center',
-alignItems: 'center',
-backgroundColor: '#fcf9f2'
-},
-btnView:{
-  flexDirection: "row",
-  color: '#fff',
-  justifyContent: 'space-between'
-},
-inputView: {
-    backgroundColor: "#f49e73",
-    borderRadius: 30,
-    width: "70%",
-    height: 45,
-    marginBottom: 20,
-    alignItems: "center",
-  },
-  TextInput: {
-    height: 50,
-    flex: 1,
-    padding: 10,
-    marginLeft: 20,
-    color: 'black'
-  },
-  logo:{
-    width: 100,
-    height: 100,
-    borderRadius: 60/ 2,
-  }
-});
+
 export default UserForm;

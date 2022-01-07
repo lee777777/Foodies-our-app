@@ -5,10 +5,7 @@ const Header = ({title}) =>{
         <View style={styles.header}>
 
           <Text style={styles.text} > {title+" "} 
-          <Image
-        style={styles.logo}
-        source={require('../../Assets/Images/food.jpg')}
-      /></Text>
+         </Text>
         </View>
   );
 };
@@ -19,21 +16,14 @@ const styles = StyleSheet.create({
 header: {
  height: 70,
  padding: 5,
- backgroundColor: 'darkslateblue'
+
 
 },
 text:{
-    color: '#fff',
+    color: 'black',
     fontSize: 23,
     textAlign: 'center',
     fontFamily: 'lobster-regular'
-},
-logo:{
-  
-
-  width: 50,
-  height: 50,
-  borderRadius: 60/ 2,
 }
 });
 export default Header;

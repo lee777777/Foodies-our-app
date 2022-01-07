@@ -1,18 +1,20 @@
 import React from 'react';
-import {View, Text, Image, StyleSheet, TouchableOpacity} from 'react-native';
+import {View, Text, Button, Image, StyleSheet, TouchableOpacity} from 'react-native';
+import SmallerBtn from './Buttons/SmallerBtn';
+import RoundBtn from './Buttons/RoundBtn';
 
 const UserProfile = ({id, uName}) =>{
   return(
         <View style={styles.viewContainer}>
+             <Image style= { styles.backgroundImage } source={require('../../Assets/Images/food.jpg')}/>
+        <View style={styles.rowAlign}>
+        <View >
         <Image style={styles.img} source={require('../../Assets/Images/userpic.png')}/>
-         <Text style={{fontWeight: 'bold', color:'black'}}>{uName}</Text>
-         <Text style={styles.text}> Hi, am Leen and I make vegan recipes</Text>
-         <TouchableOpacity style={styles.btn} >
-            <Text style={styles.btnText} >Follow</Text>
-           </TouchableOpacity>
-           <TouchableOpacity style={styles.btn} >
-            <Text style={styles.btnText}>Message</Text>
-           </TouchableOpacity>
+         <Text style={{fontWeight: 'bold', color:'black', marginLeft:'3%'}}>@{uName}</Text>
+         <Text style={styles.text}>Hi, am {uName} and I make vegan recipes</Text>
+        <SmallerBtn title="Edit"/>
+        </View>
+        </View>
         </View>
   );
 };
@@ -23,15 +25,29 @@ viewContainer:{
     // marginBottom: '3%',
     // marginRight: '3%',
     // marginLeft: '3%',
-    flex:1,
-    height: '20%', 
-    borderColor:'darkslateblue',
-    borderWidth: 3,
-    borderRadius: 15/2,
-    backgroundColor: '#e4bcf4'
+    flex:1/2,
+    // height: '20%', 
+    // borderColor:'darkslateblue',
+    margin: 5,
+   
+     padding:5,
+     borderRadius: 15/2,
+    // backgroundColor: '#e4bcf4'
+},
+backgroundImage:{
+    position: 'absolute',
+    width: '100%',
+    height: '100%',
+    justifyContent: "center",
+    alignItems: "center",
+    opacity: 0.2
 },
 text:{
-    color: 'black'
+    color: 'black',
+    width: 200,
+    marginRight: '5%',
+    marginLeft:'3%',
+   
 },
 img:{
     width: 100,
@@ -42,23 +58,17 @@ img:{
     marginTop: 3,
     marginBottom: 3
 },
-btn:{
-    borderRadius: 10/2,
-     marginLeft: '30%',
-    
-  
-    marginTop: '5%',
-    backgroundColor: '#c2bad8',
-     borderWidth: 1,
-    borderColor:'black',
-    padding: 4,
-    width: 85,
-     
+buttons:{
+    margin: '10%'
 },
-btnText: {
-    color: 'darkslateblue',
-    fontSize: 15,
-    textAlign: 'center'
+TextBtns:{
+    fontWeight: 'bold',
+     color:'black',
+      marginTop:6,
+      fontSize: 14
+},
+rowAlign:{
+flexDirection: 'row'
 }
 });
 export default UserProfile;

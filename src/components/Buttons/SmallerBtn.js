@@ -1,7 +1,7 @@
 import React from 'react';
 import { Text, View, StyleSheet, Pressable } from 'react-native';
 
-export default function SmallButton(props) {
+export default function SmallerBtn(props) {
   const { onPress, title } = props;
   return (
     <Pressable style={styles.button} onPress={onPress}>
@@ -14,11 +14,13 @@ const styles = StyleSheet.create({
   button: {
     alignItems: 'center',
     justifyContent: 'center',
-    paddingVertical: 10,
-    paddingHorizontal: 20,
+    paddingVertical: 5,
+    paddingHorizontal: 5,
+    maxWidth: 100,
     borderRadius: 50,
     elevation: 3,
     backgroundColor: 'black',
+    margin: 5
   },
   text: {
     fontSize: 14,
@@ -26,5 +28,6 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     letterSpacing: 0.25,
     color: 'white',
+    fontFamily: 'SourceCodePro-regular',
   },
 });

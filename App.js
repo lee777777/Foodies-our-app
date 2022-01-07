@@ -1,3 +1,4 @@
+import 'react-native-gesture-handler';
 import React, {useState} from 'react';
 import UserForm from './src/Screens/UserForm';
 import SignUp from './src/Screens/SignUp';
@@ -8,6 +9,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import {Provider as AuthProvider} from './src/Context/AuthContext.js';
 import {Context as AuthContext} from './src/Context/AuthContext';
+import DrawerNav from './src/DrawerNav';
 const getFonts = () =>{
   return Font.loadAsync({
     'lobster-regular': require('./Assets/fonts/Lobster-Regular.ttf'),
@@ -36,7 +38,10 @@ const AuthStack = createNativeStackNavigator();
 }
 function homeFlow() {
   return (
-<TabNav/>
+ 
+
+<DrawerNav/>
+
   );
 }
 const Stack = createNativeStackNavigator();

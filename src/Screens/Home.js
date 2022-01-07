@@ -1,22 +1,21 @@
 import React, {useContext} from 'react';
-import Header from '../components/Header';
 import UserProfile from '../components/UserProfile';
-import AddPost from '../components/AddPost';
 import Posts from '../components/Posts';
-import Feed from './Feed';
-import Explore from './Explore';
-import UserForm from './UserForm';
-import Recommendations from './Recommendations';
-import {View,  StyleSheet, Image,Text, FlatList, Alert, Button} from 'react-native';
-import SmallButton from '../components/SmallButton';
+import {View,  StyleSheet,TouchableOpacity, Image,Text, FlatList, Alert, Button} from 'react-native';
+import SmallButton from '../components/Buttons/SmallButton';
 import {Context as AuthContext} from '../Context/AuthContext';
+import {globalStyles} from '../../Assets/Global';
+
+
 
 const Home = ({ navigation }) =>{
   const {state, signout} = useContext(AuthContext);
+
+
    React.useLayoutEffect(() => {
     navigation.setOptions({
       headerRight: () => (
-        <SmallButton
+        <SmallButton 
         onPress={() =>
           Alert.alert(
       " Confirmation Alert",
@@ -33,31 +32,24 @@ const Home = ({ navigation }) =>{
       cancelable: true}
     ) }
         title="Logout" />
-      )
-     
+      ),
+       headerLeft: () => (
+        <TouchableOpacity onPress={() => navigation.toggleDrawer()}>
+    <Image
+    style={{width: 30, height: 30, marginLeft: 5}}
+    source={require('../../Assets/Images/drawerPic.png')}/>
+  </TouchableOpacity>
+  ),
     });
   }, [navigation]);
   return(
     
-        <View style={styles.container}>
-<UserProfile uName={ state.email}/> 
-          <Posts/>
+        <View style={globalStyles.container}>
+<Text>Home screen</Text>
         </View>
       
   );
 
 };
-const styles = StyleSheet.create({
-  
-container: {
-  flex:1,
-  backgroundColor: '#fcf9f2'
-},
-btnView:{
-  flexDirection: "row",
-  color: '#fff',
-  justifyContent: 'space-between'
-},
 
-});
 export default Home;

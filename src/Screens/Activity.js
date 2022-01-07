@@ -1,13 +1,10 @@
 import React, {useContext,useState} from 'react';
-import Header from '../components/Header';
-import Home from './Home';
-import Explore from './Explore';
-import Recommendations from './Recommendations';
-import {View,  StyleSheet, Text, Image, FlatList, Alert, Button} from 'react-native';
-import SmallButton from '../components/SmallButton';
+import {globalStyles} from '../../Assets/Global';
+import {View,  StyleSheet, Text,TouchableOpacity, Image, FlatList, Alert, Button} from 'react-native';
+import SmallButton from '../components/Buttons/SmallButton';
 import {Context as AuthContext} from '../Context/AuthContext';
-
-const Feed = ({ navigation }) =>{ 
+import Ionicons from 'react-native-vector-icons/Ionicons';
+const Activity = ({ navigation }) =>{ 
   const {state, signout} = useContext(AuthContext);
 
   React.useLayoutEffect(() => {
@@ -30,29 +27,22 @@ const Feed = ({ navigation }) =>{
       cancelable: true}
     ) }
         title="Logout"/>
-      )
+      ),
+headerLeft: () => (
+  <TouchableOpacity style={{marginLeft: 5}} onPress={() => navigation.goBack()}>
+<Ionicons name={'arrow-back'} size={30} color={'black'} />
+  </TouchableOpacity> 
+)
     });
   }, [navigation]);
   return(
     
-        <View style={styles.container}>
-          <Text style={{color:'black'}}>Tis is the Feed screen...</Text>
+        <View style={globalStyles.container}>
+          <Text style={{color:'black'}}>This is the Activity screen...</Text>
         </View>
       
   );
 
 };
-const styles = StyleSheet.create({
-  
-container: {
-  flex:1,
-  backgroundColor: '#fcf9f2'
-},
-btnView:{
-  flexDirection: "row",
-  color: '#fff',
-  justifyContent: 'space-between'
-},
 
-});
-export default Feed;
+export default Activity;
